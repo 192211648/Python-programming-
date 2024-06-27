@@ -1,0 +1,15 @@
+def print_pattern(rows):
+    for i in range(1, rows + 1):
+        # Print i stars in each row
+        for j in range(1, i + 1):
+            print("*", end=" ")
+        print()  # Move to the next line after each row
+
+# Main function
+def main():
+    rows = 5  # Number of rows in the pattern
+    print_pattern(rows)
+
+# Execute the main function
+if __name__ == "__main__":
+    main()
