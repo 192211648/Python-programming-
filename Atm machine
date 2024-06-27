@@ -1,0 +1,24 @@
+def get_denomination_and_notes():
+    denomination_order = []
+    for i in range(1, 5):
+        denomination = int(input(f"Enter the {i}st Denomination: "))
+        num_notes = int(input(f"Enter the {i}st Denomination number of notes: "))
+        denomination_order.append((denomination, num_notes))
+    return denomination_order
+
+def calculate_total_balance(denomination_order):
+    total_balance = 0
+    for denomination, num_notes in denomination_order:
+        total_balance += denomination * num_notes
+    return total_balance
+
+# Main function to execute the program
+def main():
+    print("Enter the denominations and the number of notes:")
+    denomination_order = get_denomination_and_notes()
+    total_balance = calculate_total_balance(denomination_order)
+    print(f"Total Available Balance in ATM: {total_balance}")
+
+# Execute the main function
+if __name__ == "__main__":
+    main()
