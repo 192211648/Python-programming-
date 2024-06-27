@@ -1,0 +1,16 @@
+def is_leap_year(year):
+    # Leap year is divisible by 4 but not by 100, unless it is divisible by 400
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        return True
+    else:
+        return False
+
+def anniversary_leap_year_check(year):
+    if is_leap_year(year):
+        print(f"{year} is a leap year. The next anniversary year is {year + 1}.")
+    else:
+        print(f"{year} is not a leap year. The previous anniversary year is {year - 1}.")
+
+# Example usage
+anniversary_year = 2024
+anniversary_leap_year_check(anniversary_year)
