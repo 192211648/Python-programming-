@@ -1,0 +1,23 @@
+def print_multiplication_table(M, N):
+    if N < 0:
+        return "N should be a non-negative integer."
+    
+    if M == 0 or N == 0:
+        return "Both M and N should be non-zero for valid multiplication table."
+
+    for i in range(1, N + 1):
+        result = i * M
+        print(f"{i}x{M}={result}")
+
+# Main function
+def main():
+    # Taking input from the user
+    M = int(input("Enter value for M: "))
+    N = int(input("Enter value for N: "))
+    
+    # Printing the multiplication table
+    print_multiplication_table(M, N)
+
+# Execute the main function
+if __name__ == "__main__":
+    main()
