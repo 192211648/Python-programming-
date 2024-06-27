@@ -1,0 +1,34 @@
+import math
+from functools import reduce
+
+def gcd_multiple(numbers):
+    return reduce(math.gcd, numbers)
+
+def lcm(a, b):
+    return abs(a * b) // math.gcd(a, b)
+
+def lcm_multiple(numbers):
+    return reduce(lcm, numbers)
+
+def main():
+    try:
+        N = int(input("Enter the N value: "))
+        if N <= 0:
+            raise ValueError("N should be a positive integer.")
+        
+        numbers = []
+        for i in range(N):
+            num = int(input(f"Enter number {i + 1}: "))
+            numbers.append(num)
+        
+        gcd_result = gcd_multiple(numbers)
+        lcm_result = lcm_multiple(numbers)
+        
+        print(f"GCD = {gcd_result}")
+        print(f"LCM = {lcm_result}")
+    
+    except ValueError as e:
+        print(f"Invalid input: {e}")
+
+# Sample Input and Output
+main()
