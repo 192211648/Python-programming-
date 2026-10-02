@@ -391,3 +391,418 @@
 # for n, a, c in zip(name, age, course):
 #     print(f"{n:<10}{a:<10}{c:<10}")
 
+# from math import sqrt
+# def areatri(a,b,c):
+#     s=(a+b+c)/2
+#     A=sqrt(s*(s-a)*(s-b)*(s-c))
+#     return A
+# a,b,c=eval(input("enter the first triangle sides:"))
+# a,b,c=eval(input("enter the second triangle sides:"))
+# a,b,c=eval(input("enter the third triangle sides:"))
+# A1=areatri(a,b,c)
+# A2=areatri(a,b,c)
+# A3=areatri(a,b,c)
+# print(f"the area sides of triangle{A1},{A2},{A3}")
+
+# def add(a,b):
+#     return a+b
+# print(add(2,4))
+
+# def final_price(price,discount_percent):
+#     discount=price*discount_percent/100
+#     return price - discount
+# print(final_price(5000,10))
+# print(final_price(2000,34))
+
+# def greet(name):
+#     return f"Hello{name}"
+# m=greet(" rakesh")
+# print(m)
+
+# def n():
+#     return "kill"
+# print(n())
+
+# def square(number):
+#     return number*number
+# print(square(10))
+
+# def rectangle_are(l,w):
+#     return l*w
+# print(rectangle_are(10,6))
+
+# def add(a,b):
+#     print(a+b)
+# a=add(2,3)
+# print(a)  
+
+# def add(a,b):
+#     return(a+b)
+# a=add(5,4)
+# print(a)
+# print(a*10)
+
+# def classify_number(number):
+#     if number>0:
+#         return "positive"
+#     if number <0:
+#         return "negative"
+#     if number==0:
+#         return "zero"
+# print(classify_number(6))
+# print(classify_number(-4))
+# print(classify_number(12222))
+# print(classify_number(0))
+
+# def abs(n):
+#     if n<0:
+#         return -n
+# print(abs(-5))
+
+# def a(name,age):
+#     return f"{name} is {age} years old."
+# print(a(age=3,name="dia"))
+
+# def greet(name,greeting="hello"):
+#     return f"{greeting},{name}"
+# print(greet("rakesh"))
+# print(greet("rakesh","hi"))
+
+# def add_items(item,items=None):
+#     if items is None:
+#         items=[]
+#     items.append(item)
+#     return items
+# print(add_items("apple"))
+# print(add_items("banana"))
+
+# def calculate(a,b):
+#     add=a+b
+#     sub=a-b
+#     return add,sub
+# add,sub=calculate(6,2)
+# print(add,sub)
+
+# def rectangle(l,w):
+#     return{
+#         "area":l*l,
+#         "perimeter":2*(l+w),
+#     }
+# detail=rectangle(4,6)
+# print(detail["area"])
+
+# def calculate_total():
+#     total=100
+#     return total
+# print(calculate_total())
+
+# tax_rate=0.10
+# def calculate_tax(price):
+#     tax=tax_rate*price
+#     total=tax+price
+#     return total
+# p=calculate_tax(100)
+# print(p)
+
+# def increment(count):
+#     return count+1
+# count=0
+# count=increment(count)
+# print(count)
+
+# count=0
+# def increment():
+#     global count
+#     count+=1
+
+# def change_number(number):
+#     number=100
+# value=10
+# change_number(value)
+# print(value)
+
+# def add_number(number):
+#     number.append(100)
+# values=[1,2]
+# add_number(values)
+# print(values)
+
+# def with_added_number(number):
+#     return number+[100]
+# values=[1,2,3]
+# new=with_added_number(values)
+# print(values)
+# print(new)
+
+# def add_all(*number):
+#     total=0
+#     for i in number:
+#         total+=i
+#     return total
+# print(add_all(1,2,3,3,3,34,4,555,6))
+
+# def make_profile(**detail):
+#     return detail
+# profile=make_profile(name="rocky",age=21,course="AIML")
+# print(profile)
+
+# def add(a,b):
+#     return a+b
+# values=[10,20]
+# print(add(*values))
+# options={"a":10,"b":20}
+# print(add(**options))
+
+
+
+# OOPS CONCEPT
+
+
+
+# class student:
+#     pass
+# student1=student()
+# student1.name="Rakesh"
+# student1.age=21
+# student1.course="AIML"
+# print(student1.name)
+# print(student1.age)
+# print(student1.course)
+# print(type(student1))
+
+# class student:
+#     def __init__(self,name,age,course):
+#         self.name=name
+#         self.age=age
+#         self.course=course
+#     def study(self):
+#         print(self.name,"is studying")
+# student1=student("Rakesh",21,"CSE")
+# print(student1.course)
+# student1.study()
+
+# class car:
+#     def __init__(self,brand,color):
+#         self.brand=brand
+#         self.color=color
+#     def start(self):
+#         print(self.brand,"car is started.")
+#     def stop(self):
+#         print(self.brand,"car is stopped.")
+# car1=car("Toyato","Red")
+# print(car1.brand)
+# print(car1.color)
+# car1.start()
+# car1.stop()
+
+# class bankaccount:
+#     def __init__(self,name,balance):
+#         self.name=name
+#         self.balance=balance
+#     def deposit(self,amount):
+#         self.balance=self.balance+amount
+#     def show_balance(self):
+#         print("balance:",self.balance)
+# account1=bankaccount("Rakesh",5000)
+# print(account1.name)
+# account1.show_balance()
+# account1.deposit(2000)
+# account1.show_balance()
+
+# class animal:
+#     def eat(self):
+#         print("animal is eating")
+# class dog(animal):
+#     def bark(self):
+#         print("dog is barking")
+# dog1=dog()
+# dog1.eat()
+# dog1.bark()
+
+# class Dog:
+#     def sound(self):
+#         print("bark")
+# class Cat:
+#     def sound(self):
+#         print("meow")
+# dog=Dog()
+# cat=Cat()
+# dog.sound()
+# cat.sound()
+
+# class student:
+#     college="Saveetha"
+#     def __init__(self,name,age,course):
+#         self.name=name
+#         self.age=age
+#         self.course=course
+#     def introduce(self):
+#         print(f"My name is {self.name}.")
+#         print(f"I'm {self.age} years old.")
+#         print(f"I was studying {self.course} in {student.college} college.")
+# student1=student("Rakesh",21,"CSE")
+# student2=student("Diya",3,"AIML")
+# student3=student("kousalya",25,"EEE")
+# student1.introduce()
+# print("-"*20)
+# student2.introduce()
+# print("-"*20)
+# student3.introduce()
+
+# class Mobile:
+#     def __init__(self,brand,model,price):
+#         self.brand=brand
+#         self.model=model
+#         self.price=price
+#     def call(self):
+#         print(f"{self.brand} is calling")
+# mobile1=Mobile("POCO","M3 Pro 5G",15000)
+# mobile2=Mobile("Samsung","S24",70000)
+# print(f"Brand: {mobile1.brand}")
+# print(f"Model: {mobile1.model}")
+# print(f"Price:{mobile1.price}")
+# print("-"*20)
+# print(f"Mobile:{mobile2.brand} {mobile2.model} is {mobile2.price}")
+# mobile1.call()
+# mobile2.call()
+
+# class employee:
+#     def __init__(self,name,salary):
+#         self.name=name
+#         self.salary=salary
+# class developer(employee):
+#     def __init__(self,name,salary,language):
+#         super().__init__(name,salary)
+#         self.language=language
+#     def code(self):
+#         print(self.name,"is coding in",self.language)
+# developer1=developer("Rakesh",20000,"Python")
+# print(developer1.name)
+# print(developer1.salary)
+# print(developer1.language)
+# developer1.code()
+
+"method overriding"
+# class animal:
+#     def sound(self):
+#         print("animal is make sound.")
+# class dog(animal):
+#     def sound(self):
+#         print("bark")
+# dog1=dog()
+# dog1.sound()
+
+# class vehicle:
+#     def __init__(self,brand):
+#         self.brand=brand
+#     def start(self):
+#         print("vehicle start")
+# class car(vehicle):
+#     def __init__(self,brand,model):
+#         super().__init__(brand)
+#         self.model=model
+#     def drive(self):
+#         print("car drive")
+# car1=car("ferrari","s26")
+# print(car1.brand)   
+# print(car1.model)
+# car1.start()
+# car1.drive()
+
+# class animal:
+#     def eat(self):
+#         print("animal eats.")
+# class dog(animal):
+#     def eat(self):
+#         super().eat()
+#         print("dog eats food.")
+
+# dog1=dog()
+# dog1.eat()
+
+# class dog:
+#     def sound(self):
+#         print("dog bark")
+# class cat:
+#     def sound(self):
+#         print("cat meow")
+# class cow:
+#     def sound(self):
+#         print("cow moo")
+# animals=[dog(),cat(),cow()]
+# for i in animals:
+#     i.sound()
+
+# class vehicle:
+#     def start(self):
+#         print("vehicle starts")
+# class car(vehicle):
+#     def start(self):
+#         print("car starts with key")
+# class bike(vehicle):
+#     def start (self):
+#         print("bike start with button")
+# vehicles=[car(),bike()]
+# for i in vehicles:
+#     i.start()
+
+"encapsulation"
+# class bankaccount:
+#     def __init__(self,balance):
+#         self.__balance=balance
+#     def deposit(self,amount):
+#         self.__balance=self.__balance+amount
+#     def check_balance(self):
+#         print(self.__balance)
+# account=bankaccount(50000)
+# account.deposit(5000)
+# account.check_balance()
+
+# class bankaccount:
+#     def __init__(self,balance):
+#         self.__balance=balance
+#     def deposit(self,amount):
+#         self.__balance+=amount
+#     def withdrawal(self,amount):
+#         if self.__balance>=amount:
+#             self.__balance-=amount
+#         else:
+#             print("Insufficient Funds")
+#     def check_balance(self):
+#         print(f"Available amount is {self.__balance}")
+# "balance=int(input('enter the available balance:'))"
+# acc=int(input("enter the deposit amount:"))
+# acc1=int(input("enter the withdrawal amount:"))
+# account=bankaccount(5000)
+# account.deposit(acc)
+# account.withdrawal(acc1)
+# account.check_balance()
+
+
+"Abstraction"
+# from abc import ABC,abstractmethod
+# class atm(ABC):
+#     @abstractmethod
+#     def withdraw(self):
+#         pass
+# class sbiatm(atm):
+#     def withdraw(self):
+#         print("sbi atm processing withdrawal")
+# atm=sbiatm()
+# atm.withdraw()
+
+from abc import ABC, abstractmethod
+class BankAccount(ABC):
+    @abstractmethod
+    def withdrawal(self, amount):
+        pass
+class SavingsAccount(BankAccount):
+    def withdrawal(self, amount):
+        print(f"Savings account withdrawal: {amount}")
+class CurrentAccount(BankAccount):
+    def withdrawal(self, amount):
+        print(f"Current account withdrawal: {amount}")
+savings = SavingsAccount()
+current = CurrentAccount()
+savings.withdrawal(5000)
+current.withdrawal(5000)
