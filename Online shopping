@@ -1,0 +1,47 @@
+from abc import ABC, abstractmethod
+class product:
+    def __init__(self,name,price,stock):
+        self.name=name
+        self.price=price
+        self.__stock=stock
+    def get_stock(self):
+        return self.__stock
+    def reduce_stock(self,quantity):
+        if quantity<=0:
+            print("Invalid quantity")
+        elif quantity>self.__stock:
+            print("Not enough stock")
+        else:
+            self.__stock-=quantity
+            print(f"{quantity} item(s) purchased")
+class customer:
+    def __init__(self,name,):
+        self.name=name
+        self.cart=[]
+    def add_cart(self,product):
+        if product.get_stock()>0:
+            self.cart.append(product)
+            print(f"{product.name} added to cart")
+        else:
+            print("Product is out of stock")
+class payment(ABC):
+    @abstractmethod
+    def pay(self,amount):
+        pass
+class upipayment(payment):
+    def pay(self,amount):
+        print(f"{amount} paid using UPI")
+class cardpayment(payment):
+    def pay(self,amount):
+        print(f"{amount} paid using Card")
+class cashondelivery(payment):
+    def pay(self,amount):
+        print(f'{amount} will be paid on delivered')
+def make_payment(payment,amount):
+    payment.pay(amount)
+product=product("Laptop",50000,5)
+customer=customer("Rakesh")
+customer.add_cart(product)
+product.reduce_stock(1)
+payment=upipayment()
+make_payment(payment,product.price)

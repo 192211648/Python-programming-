@@ -247,7 +247,7 @@
 # for i in n:
 #     print("X"*i)
 
-# Google audio problem
+"Google audio problem"
 
 # from gtts import gTTS
 # text="Hello Diya" 
@@ -265,7 +265,7 @@
 #         max=i
 # print(max)
 
-# list
+"list"
 # n=[12,1,2,3,4,5,6]
 # x=n.count(3)
 # print(x)
@@ -285,7 +285,7 @@
 #         unique.append(i)
 # print(unique)
 
-# tuple
+"tuple"
 # n=(1,2,3)
 # x, y, z=n
 # print(x*y*z)
@@ -294,7 +294,7 @@
 # x=n.count(5)
 # print(x)
 
-# dictonary
+"dictonary"
 
 # customer={
 #     "name":"rakesh",
@@ -310,7 +310,7 @@
 # result=square(3)
 # print(result)
 
-# exception
+"exception"
 # try:
 #     age=int(input("age:"))
 #     income=23456
@@ -321,14 +321,14 @@
 # except ValueError:
 #     print('invalid value')
 
-# class
+"class"
 # class Point:
 #     def move (self):
 #         print("move")
 #     def draw(self):
 #         print("draw")
 
-# inheritance
+"inheritance"
 # class Mammal:
 #     def walk(self):
 #         print("walk")
@@ -341,7 +341,7 @@
 # dog1=Dog()
 # dog1.bark()
 
-# random values
+"random values"
 
 # import random
 # members=['john','mary','bob','mosh']
@@ -361,7 +361,7 @@
 # print(x,type(x))
 # print(y,type(y))
 
-# formatting
+# "formatting"
 # n=1000000
 # print(f"{n:,}")
 
@@ -555,7 +555,7 @@
 
 
 
-# OOPS CONCEPT
+"OOPS CONCEPT"
 
 
 
@@ -791,18 +791,24 @@
 # atm=sbiatm()
 # atm.withdraw()
 
-from abc import ABC, abstractmethod
-class BankAccount(ABC):
-    @abstractmethod
-    def withdrawal(self, amount):
-        pass
-class SavingsAccount(BankAccount):
-    def withdrawal(self, amount):
-        print(f"Savings account withdrawal: {amount}")
-class CurrentAccount(BankAccount):
-    def withdrawal(self, amount):
-        print(f"Current account withdrawal: {amount}")
-savings = SavingsAccount()
-current = CurrentAccount()
-savings.withdrawal(5000)
-current.withdrawal(5000)
+# from abc import ABC, abstractmethod
+# class BankAccount(ABC):
+#     @abstractmethod
+#     def withdrawal(self, amount):
+#         pass
+# class SavingsAccount(BankAccount):
+#     def withdrawal(self, amount):
+#         print(f"Savings account withdrawal: {amount}")
+# class CurrentAccount(BankAccount):
+#     def withdrawal(self, amount):
+#         print(f"Current account withdrawal: {amount}")
+# savings = SavingsAccount()
+# current = CurrentAccount()
+# savings.withdrawal(5000)
+# current.withdrawal(5000)
+
+
+xdfghj
+ssjaxzs 
+seuwi 
+
