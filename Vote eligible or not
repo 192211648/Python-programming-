@@ -1,0 +1,39 @@
+def check_voting_eligibility(age):
+    voting_age = 18
+    if age < 0:
+        return "Invalid age. Age cannot be negative."
+    elif age >= voting_age:
+        return "You are eligible to vote."
+    else:
+        years_left = voting_age - age
+        return f"You are allowed to vote after {years_left} years."
+
+def main():
+    input_age = input("Enter your age: ")
+    
+    try:
+        # Try converting the input to a float to handle numbers with decimal points
+        age = float(input_age)
+        if age.is_integer():
+            age = int(age)
+        result = check_voting_eligibility(age)
+        print(result)
+    except ValueError:
+        print("Invalid input. Please enter a valid numerical age.")
+
+# Sample Input and Output
+main()
+
+# Test cases
+test_cases = ["25", "Eighteen", "12", "-18", "34.5"]
+for case in test_cases:
+    print("\nTest Case:")
+    print(f"Input age: {case}")
+    try:
+        age = float(case)
+        if age.is_integer():
+            age = int(age)
+        result = check_voting_eligibility(age)
+        print(result)
+    except ValueError:
+        print("Invalid input. Please enter a valid numerical age.")

@@ -1,0 +1,65 @@
+def is_prime(num):
+    if num <= 1:
+        return False
+    if num == 2:
+        return True
+    if num % 2 == 0:
+        return False
+    for i in range(3, int(num**0.5) + 1, 2):
+        if num % i == 0:
+            return False
+    return True
+
+def count_prime_and_composite(numbers):
+    prime_count = 0
+    composite_count = 0
+    for num in numbers:
+        if isinstance(num, int) and num > 1:
+            if is_prime(num):
+                prime_count += 1
+            else:
+                composite_count += 1
+    return prime_count, composite_count
+
+def main():
+    input_numbers = input("Enter the numbers separated by spaces: ").split()
+    numbers = []
+    
+    for item in input_numbers:
+        try:
+            num = float(item)
+            if num.is_integer():
+                numbers.append(int(num))
+        except ValueError:
+            continue
+    
+    prime_count, composite_count = count_prime_and_composite(numbers)
+    print(f"Prime numbers: {prime_count}")
+    print(f"Composite numbers: {composite_count}")
+
+# Sample Input and Output
+main()
+
+# Test cases
+test_cases = [
+    ["33", "41", "52", "61", "73", "90"],
+    ["TEN", "FIFTY", "SIXTY-ONE", "SEVENTY-SEVEN", "NINE"],
+    ["45", "87", "09", "5.0", "2.3", "0.4"],
+    ["-54", "-76", "-97", "-23", "-33", "-98"],
+    ["45", "73", "00", "50", "67", "44"]
+]
+
+for test in test_cases:
+    print("\nTest Case:")
+    print("Input:", " ".join(test))
+    numbers = []
+    for item in test:
+        try:
+            num = float(item)
+            if num.is_integer():
+                numbers.append(int(num))
+        except ValueError:
+            continue
+    prime_count, composite_count = count_prime_and_composite(numbers)
+    print(f"Prime numbers: {prime_count}")
+    print(f"Composite numbers: {composite_count}")

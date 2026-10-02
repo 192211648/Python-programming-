@@ -1,0 +1,11 @@
+def decimal_to_octal(decimal_num):
+    return oct(decimal_num)[2:]
+
+# Taking input from the user
+decimal_num = int(input("Enter a decimal number: "))
+
+# Converting decimal to octal
+octal_num = decimal_to_octal(decimal_num)
+
+# Printing the result
+print(f"The octal equivalent of {decimal_num} is: {octal_num}")

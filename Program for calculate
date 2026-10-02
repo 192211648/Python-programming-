@@ -1,0 +1,64 @@
+def calculate_pow(x, n):
+    result = 1
+    for _ in range(n):
+        result *= x
+    return result
+
+def calculate_add(x, n):
+    return x + n
+
+def calculate_sub(x, n):
+    return x - n
+
+def calculate_mul(x, n):
+    return x * n
+
+def calculate_div(x, n):
+    if n == 0:
+        return "Division by zero is undefined"
+    return x / n
+
+def main():
+    x = float(input("Enter the value for X: "))
+    n = float(input("Enter the value for N: "))
+    print("Choose the operation to perform:")
+    print("1. Pow(X, N)")
+    print("2. Add(X, N)")
+    print("3. Sub(X, N)")
+    print("4. Mul(X, N)")
+    print("5. Div(X, N)")
+    choice = int(input("Enter your choice (1-5): "))
+    
+    if choice == 1:
+        print(f"Pow({x}, {n}) = {calculate_pow(x, int(n))}")
+    elif choice == 2:
+        print(f"Add({x}, {n}) = {calculate_add(x, n)}")
+    elif choice == 3:
+        print(f"Sub({x}, {n}) = {calculate_sub(x, n)}")
+    elif choice == 4:
+        print(f"Mul({x}, {n}) = {calculate_mul(x, n)}")
+    elif choice == 5:
+        print(f"Div({x}, {n}) = {calculate_div(x, n)}")
+    else:
+        print("Invalid choice!")
+
+# Sample Input
+main()
+
+# Test cases
+test_cases = [
+    (0, 4),
+    (5, 0),
+    (-3, 3),
+    (0, 0),
+    (123, 123)
+]
+
+for x, n in test_cases:
+    print("\nTest Case:")
+    print(f"X = {x}, N = {n}")
+    print(f"Pow({x}, {n}) = {calculate_pow(x, int(n))}")
+    print(f"Add({x}, {n}) = {calculate_add(x, n)}")
+    print(f"Sub({x}, {n}) = {calculate_sub(x, n)}")
+    print(f"Mul({x}, {n}) = {calculate_mul(x, n)}")
+    print(f"Div({x}, {n}) = {calculate_div(x, n)}")

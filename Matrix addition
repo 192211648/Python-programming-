@@ -1,0 +1,40 @@
+def matrix_addition(mat1, mat2):
+    # Check if dimensions of mat1 and mat2 are the same
+    if len(mat1) != len(mat2) or len(mat1[0]) != len(mat2[0]):
+        return "Matrices must have the same dimensions for addition."
+
+    # Initialize an empty result matrix with the same dimensions as mat1
+    rows = len(mat1)
+    cols = len(mat1[0])
+    mat_sum = [[0] * cols for _ in range(rows)]
+
+    # Perform element-wise addition
+    for i in range(rows):
+        for j in range(cols):
+            mat_sum[i][j] = mat1[i][j] + mat2[i][j]
+
+    return mat_sum
+
+# Main function
+def main():
+    # Sample input matrices
+    Mat1 = [[1, 2],
+            [5, 3]]
+    
+    Mat2 = [[2, 3],
+            [4, 1]]
+    
+    # Perform matrix addition
+    result = matrix_addition(Mat1, Mat2)
+
+    # Print the result
+    if isinstance(result, str):
+        print(result)
+    else:
+        print("Mat Sum =")
+        for row in result:
+            print(" ".join(map(str, row)))
+
+# Execute the main function
+if __name__ == "__main__":
+    main()

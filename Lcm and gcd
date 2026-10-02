@@ -1,0 +1,27 @@
+import math
+from functools import reduce
+
+def gcd(a, b):
+    while b:
+        a, b = b, a % b
+    return a
+
+def gcd_of_list(numbers):
+    return reduce(gcd, numbers)
+
+def lcm(a, b):
+    return a * b // gcd(a, b)
+
+def lcm_of_list(numbers):
+    return reduce(lcm, numbers)
+
+# Taking input from the user
+numbers = list(map(int, input("Enter the numbers separated by space: ").split()))
+
+# Calculating GCD and LCM
+gcd_result = gcd_of_list(numbers)
+lcm_result = lcm_of_list(numbers)
+
+# Printing the results
+print(f"The GCD of the numbers is: {gcd_result}")
+print(f"The LCM of the numbers is: {lcm_result}")

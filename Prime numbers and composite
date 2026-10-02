@@ -1,0 +1,47 @@
+def is_prime(num):
+    if num <= 1:
+        return False
+    if num == 2:
+        return True  # 2 is prime
+    if num % 2 == 0:
+        return False  # Other even numbers are not prime
+    for i in range(3, int(num**0.5) + 1, 2):
+        if num % i == 0:
+            return False
+    return True
+
+def classify_numbers(numbers):
+    composite_count = 0
+    prime_count = 0
+    
+    for num in numbers:
+        num = int(num)  # Convert each number to integer
+        if num <= 1:
+            continue  # Ignore numbers less than or equal to 1
+        
+        if is_prime(num):
+            prime_count += 1
+        else:
+            composite_count += 1
+    
+    return prime_count, composite_count
+
+# Main function
+def main():
+    # Taking input from the user
+    input_numbers = input("Enter the numbers separated by commas: ")
+    
+    # Splitting input into a list of strings and converting to integers
+    numbers = input_numbers.split(',')
+    numbers = [num.strip() for num in numbers]  # Remove any extra spaces
+    numbers = [num for num in numbers if num.isdigit()]  # Filter out non-numeric entries
+    
+    # Classifying numbers
+    prime_count, composite_count = classify_numbers(numbers)
+    
+    # Printing the results
+    print(f"Composite number:{composite_count} Prime number:{prime_count}")
+
+# Execute the main function
+if __name__ == "__main__":
+    main()
