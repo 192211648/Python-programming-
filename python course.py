@@ -382,12 +382,12 @@
 # n=734567
 # print(f"{n:0^10}")
 
-name=["rakesh","john","bob","guys"]
-age=[29,22,32,21]
-course=["CSE","ECE","MECH","AI/ML"]
-print(f"{'name':<10}{'age':<10}{'course':<10}")
-for i in range (len(name)):
-    print(f"{name[i]:<10}{age[i]:<10}{course[i]:<10}")
+# name=["rakesh","john","bob","guys"]
+# age=[29,22,32,21]
+# course=["CSE","ECE","MECH","AI/ML"]
+# print(f"{'name':<10}{'age':<10}{'course':<10}")
+# for i in range (len(name)):
+#     print(f"{name[i]:<10}{age[i]:<10}{course[i]:<10}")
 # for n, a, c in zip(name, age, course):
 #     print(f"{n:<10}{a:<10}{c:<10}")
 
