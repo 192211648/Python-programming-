@@ -1,0 +1,62 @@
+from abc import ABC,abstractmethod
+class patient:
+    def __init__(self,patient_id,patient_name,patient_age):
+        self.patient_name=patient_name
+        self.patient_id=patient_id
+        self.__patient_age=patient_age
+    def get_age(self):
+        return self.__patient_age
+    def display_details(self):
+        print(f"Patient ID:{self.patient_id}")
+        print(f"Patient Name:{self.patient_name}")
+        print(f"Patient Age:{self.__patient_age}")
+class Medicalstaff(ABC):
+    @abstractmethod
+    def work(self):
+        pass
+class Doctor(Medicalstaff):
+    def __init__(self,Doctor_name,specialization,fees):
+        self.Doctor_name=Doctor_name
+        self.specialization=specialization
+        self.fees=fees
+    def work(self):
+        print(f"Dr.{self.Doctor_name} is examine patients.")
+    def examine_patient(self,patient):
+        print(f"Specialization:{self.specialization}")
+        print(f"Dr.{self.Doctor_name} is examine {patient.patient_name}")
+class Nurse(Medicalstaff):
+    def __init__(self,nurse_name):
+        self.nurse_name=nurse_name
+    def work(self):
+        print(f"Nurse {self.nurse_name} assists patients.")
+class bill:
+    def __init__(self,patient,Consultation_fee,Medicine_fee):
+        self.patient=patient
+        self.Consultation_fee=Consultation_fee
+        self.Medicine_fee=Medicine_fee
+    def total_fee(self):
+        return self.Consultation_fee + self.Medicine_fee
+    def display_details(self):
+        print("Patient Bill")
+        print(f"Patient Name:{self.patient.patient_name}")
+        print(f"Consultation Fees:{self.Consultation_fee}")
+        print(f"Medine Fee:{self.Medicine_fee}")
+        print(f"Total Fee:{self.total_fee()}")
+def start_work(staff):
+    staff.work()
+patient1=patient(101,"Rakesh",21)
+patient1.display_details()
+print()
+
+Doctor1=Doctor("Kousalya","Cardiology",1000)
+start_work(Doctor1)
+Doctor1.examine_patient(patient1)
+print()
+
+Nurse1=Nurse("Priya")
+start_work(Nurse1)
+print()
+
+bill1=bill(patient1,Doctor1.fees,500)
+bill1.display_details()
+print()

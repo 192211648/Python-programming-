@@ -1,47 +1,86 @@
 from abc import ABC, abstractmethod
-class product:
-    def __init__(self,name,price,stock):
-        self.name=name
-        self.price=price
-        self.__stock=stock
+class Product:
+    def __init__(self, name, price, stock):
+        self.name = name
+        self.price = price
+        self.__stock = stock
     def get_stock(self):
         return self.__stock
-    def reduce_stock(self,quantity):
-        if quantity<=0:
+    def reduce_stock(self, quantity):
+        if quantity <= 0:
             print("Invalid quantity")
-        elif quantity>self.__stock:
+        elif quantity > self.__stock:
             print("Not enough stock")
         else:
-            self.__stock-=quantity
-            print(f"{quantity} item(s) purchased")
-class customer:
-    def __init__(self,name,):
-        self.name=name
-        self.cart=[]
-    def add_cart(self,product):
-        if product.get_stock()>0:
-            self.cart.append(product)
-            print(f"{product.name} added to cart")
+            self.__stock -= quantity
+            print(f"{quantity} {self.name}(s) purchased")
+    def display_product(self):
+        print(f"Product: {self.name}")
+        print(f"Price: ₹{self.price}")
+        print(f"Stock: {self.__stock}")
+class Customer:
+    def __init__(self, name):
+        self.name = name
+        self.cart = []
+    def add_to_cart(self, product, quantity):
+        if quantity <= 0:
+            print("Invalid quantity")
+        elif quantity > product.get_stock():
+            print("Not enough stock")
         else:
-            print("Product is out of stock")
-class payment(ABC):
+            self.cart.append((product, quantity))
+            print(f"{quantity} {product.name}(s) added to cart")
+    def show_cart(self):
+        print("\n----- YOUR CART -----")
+        if not self.cart:
+            print("Cart is empty")
+            return
+        for product, quantity in self.cart:
+            total = product.price * quantity
+            print(
+                f"{product.name} | "
+                f"Quantity: {quantity} | "
+                f"Price: ₹{total}"
+            )
+    def calculate_total(self):
+        total = 0
+        for product, quantity in self.cart:
+            total += product.price * quantity
+        return total
+class Payment(ABC):
     @abstractmethod
-    def pay(self,amount):
+    def pay(self, amount):
         pass
-class upipayment(payment):
-    def pay(self,amount):
-        print(f"{amount} paid using UPI")
-class cardpayment(payment):
-    def pay(self,amount):
-        print(f"{amount} paid using Card")
-class cashondelivery(payment):
-    def pay(self,amount):
-        print(f'{amount} will be paid on delivered')
-def make_payment(payment,amount):
-    payment.pay(amount)
-product=product("Laptop",50000,5)
-customer=customer("Rakesh")
-customer.add_cart(product)
-product.reduce_stock(1)
-payment=upipayment()
-make_payment(payment,product.price)
+class UPIPayment(Payment):
+    def pay(self, amount):
+        print(f"₹{amount} paid using UPI")
+class CardPayment(Payment):
+    def pay(self, amount):
+        print(f"₹{amount} paid using Card")
+class CashOnDelivery(Payment):
+    def pay(self, amount):
+        print(f"₹{amount} will be paid on delivery")
+def make_payment(payment_method, amount):
+    payment_method.pay(amount)
+def checkout(customer, payment_method):
+    if not customer.cart:
+        print("Cart is empty")
+        return
+    print("\n----- CHECKOUT -----")
+    total = customer.calculate_total()
+    print(f"Customer Name: {customer.name}")
+    print(f"Total Amount: ₹{total}")
+    for product, quantity in customer.cart:
+        product.reduce_stock(quantity)
+    make_payment(payment_method, total)
+    print("Order placed successfully!")
+laptop = Product("Laptop", 50000, 5)
+phone = Product("Phone", 20000, 10)
+customer = Customer("Rakesh")
+laptop.display_product()
+print()
+customer.add_to_cart(laptop, 1)
+customer.add_to_cart(phone, 2)
+customer.show_cart()
+payment_method = UPIPayment()
+checkout(customer, payment_method)

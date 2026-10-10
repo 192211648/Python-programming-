@@ -807,8 +807,142 @@
 # savings.withdrawal(5000)
 # current.withdrawal(5000)
 
+'Online shopping'
+# from abc import ABC, abstractmethod
+# class product:
+#     def __init__(self,name,price,stock):
+#         self.name=name
+#         self.price=price
+#         self.__stock=stock
+#     def get__stock(self):
+#         return self.__stock
+#     def reduce_stock(self,quantity):
+#         self.quantity=quantity
+#         if quantity<=0:
+#             print("Invalid quantity")
+#         elif quantity>self.__stock:
+#             print("Not enough stock")
+#         else:
+#             self.__stock-=quantity
+#             print(f"{self.quantity} is {self.name} purchased.")
+#     def display_product(self):
+#         print(f"porduct: {self.name}")
+#         print(f"price:{self.price}")
+#         print(f"stock:{self.__stock}")
+# class customer:
+#     def __init__(self,name):
+#         self.name=name
+#         self.cart=[]
+#     def add_to_cart(self,product,quantity):
+#         if quantity<=0:
+#             print("Invalid quantity")
+#         elif quantity>product.get__stock():
+#             print("not enough stock")
+#         else:
+#             self.cart.append((product,quantity))
+#             print(f"{quantity} {product.name} is added to cart")
+#     def show_cart(self):
+#         for product,quantity in self.cart:
+#             total=product.price*quantity
+#             print(f"{product.name} | "
+#                   f"Quantity: {quantity} | "
+#                   f"Price: ₹{total}")
+#     def calculate_total(self):
+#         total=0
+#         for product,quantity in self.cart:
+#             total+=product.price*quantity
+#         return total
+# class payment(ABC):
+#     @abstractmethod
+#     def pay(self,amount):
+#         pass
+# class UPIpayment(payment):
+#     def pay(self,amount):
+#         print(f"{amount} paid using UPI")
+# class cardpayment(payment):
+#     def pay(self,amount):
+#         print(f"{amount} paid using card")
+# class cashondelivery(payment):
+#     def pay(self,amount):
+#         print(f"{amount} will pay on delivered")
+# def make_payment(payment_method, amount):
+#     payment_method.pay(amount)
+# def checkout(customer, payment_method):
+#     if not customer.cart:
+#         print("Cart is empty")
+#         return
+#     print("\n----- CHECKOUT -----")
+#     total = customer.calculate_total()
+#     print(f"Customer Name: {customer.name}")
+#     print(f"Total Amount: ₹{total}")
+#     for product, quantity in customer.cart:
+#         product.reduce_stock(quantity)
+#     make_payment(payment_method, total)
+#     print("Order placed successfully!")
+# laptop = product("Laptop", 50000, 5)
+# phone = product("Phone", 20000, 10)
+# customer = customer("Rakesh")
+# laptop.display_product()
+# print()
+# customer.add_to_cart(laptop, 1)
+# customer.add_to_cart(phone, 2)
+# customer.show_cart()
+# payment_method = UPIpayment()
+# checkout(customer, payment_method)
 
-xdfghj
-ssjaxzs 
-seuwi 
-
+"Hospital Management"
+from abc import ABC,abstractmethod
+class patient:
+    def __init__(self,patient_id,patient_name,patient_age):
+        self.patient_id=patient_id
+        self.patient_name=patient_name
+        self.__patient_age=patient_age
+    def get_age(self):
+        return self.__patient.age
+    def display_details(self):
+        print(f"Patient ID: {self.patient_id}")
+        print(f"Patient Name: {self.patient_name}")
+        print(f"Patient Age: {self.__patient_age}")
+class MedicalStaff(ABC):
+    @abstractmethod
+    def work(self):
+        pass
+class doctor(MedicalStaff):
+    def __init__(self,name,specialization,fee):
+        self.name=name
+        self.specialization=specialization
+        self.fee=fee
+    def work(self):
+        print(f"Dr. {self.name} examine patients")
+    def examine_patient(self, patient):
+        print(f"Specialization: {self.specialization}")
+        print(f"Dr.{self.name} is examining {patient.patient_name}")
+class Nurse(MedicalStaff):
+    def __init__(self,nurse_name):
+        self.nurse_name=nurse_name
+    def work(self):
+        print(f"Nurse {self.nurse_name} assists patients.")
+class Bill:
+    def __init__(self,patient,consultation_fee,medicine_fee):
+        self.patient=patient
+        self.consultation_fee=consultation_fee
+        self.medicine_fee=medicine_fee
+    def Total_fee(self):
+        return self.consultation_fee + self.medicine_fee
+    def display_bill(self):
+        print(f"Patient Name:{self.patient.patient_name}")
+        print(f"Consultation:{self.consultation_fee}")
+        print(f"Medicines:{self.medicine_fee}")
+        print(f"Total Bill:{self.Total_fee()}")
+def start_work(staff):
+    staff.work()
+patient1=patient(101,"Rakesh",21)
+patient1.display_details()
+print()
+doctor1=doctor("Kousalya","Cardiology",1000)
+doctor1.examine_patient(patient1)
+nurse1=Nurse("priya")
+start_work(doctor1)
+start_work(nurse1)
+bill1=Bill(patient1,doctor1.fee,300)
+bill1.display_bill()
